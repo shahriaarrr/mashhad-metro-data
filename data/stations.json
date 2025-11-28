@@ -32,7 +32,7 @@
         "relations": ["Koohestan Park"]
     },
     "Koohestan Park": {
-        "name": "VakilAbad",
+        "name": "Koohestan Park",
         "translations": {"fa": "کوهستان پارک"},
         "lines": [1],
         "longitude": "59.451731881605184",

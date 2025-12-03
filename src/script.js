@@ -37,19 +37,25 @@ const init = async () => {
 			e.preventDefault(); // Prevent default touch behavior
 			RenderNodeProperties(node);
 		});
-		// Create SVG text element with user id as content
+		
 		const svgText = Viva.Graph.svg("text")
-			.attr("y", "-2px")
+			.attr("x", "15px")
+			.attr("y", "5px")
+			.attr("font-size", "11px")
+			.attr("font-weight", "bold")
+			.attr("font-family", "Vazirmatn, sans-serif")
+			.attr("fill", "#000")
+			.attr("text-anchor", "start")
+			.text(node.data?.translations.fa || "");
+			
+		const svgTexten = Viva.Graph.svg("text")
+			.attr("x", "15px")
+			.attr("y", "-8px")
 			.attr("font-size", "10px")
 			.attr("font-weight", "bold")
 			.attr("font-family", "Vazirmatn, sans-serif")
 			.attr("fill", "#000")
-			.text(node.data?.translations.fa || "");
-		const svgTexten = Viva.Graph.svg("text")
-			.attr("y", "-15px")
-			.attr("font-size", "10px")
-			.attr("font-family", "Vazirmatn, sans-serif")
-			.attr("fill", "#000")
+			.attr("text-anchor", "start")
 			.text(node.data?.name || "");
 
 		const svgRect = Viva.Graph.svg("rect")
@@ -180,9 +186,9 @@ function RenderNodeProperties(node) {
 		nodeLinesElement.innerHTML = node.data.lines
 			.map((line, i) => {
 				const color = (node.data.colors && node.data.colors[i]) || (node.data.colors && node.data.colors[0]) || "#777";
-				return `<span class="node-line-badge" style="background:${color};">${line}</span>`;
+				return `<span class="node-line-number" style="color:${color};">${line}</span>`;
 			})
-			.join(" ");
+			.join(' <span class="line-separator">و</span> ');
 	} else {
 		nodeLinesElement.innerHTML = "";
 	}

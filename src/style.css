@@ -131,11 +131,30 @@ svg {
   display: inline-block;
 }
 
+#nodeName {
+  font-weight: bold;
+}
+
 #nodeLines {
   display: inline-flex;
   align-items: center;
   gap: 6px;
   flex-wrap: wrap;
+}
+
+.node-line-number {
+  font-size: 18px;
+  font-weight: bold;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.line-separator {
+  font-size: 14px;
+  font-weight: normal;
+  color: rgba(0,0,0,0.6);
+  margin: 0 2px;
 }
 
 .node-line-badge {

@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			rel="stylesheet"
+			href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=location_on"
+		/>
+		<script src="https://cdn.tailwindcss.com"></script>
+		<title>Mashhad metro station graph</title>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body class="arad-normal bg-gray-50">
+		<div id="graph" class="graph_wrapper no-select"></div>
+
+		<div id="search-box" class="search-box-container no-select fixed top-4 inset-x-4 flex justify-center z-30">
+			<div id="searchDropdown" class="dropdown-content w-full max-w-md">
+				<input
+					type="text"
+					id="serach-input"
+					class="search-box arad-normal w-full rounded-lg px-4 py-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-300"
+					onfocusout="closeSearch();"
+					onkeyup="searchStation()"
+					onfocus="closeDialog();searchStation()"
+					placeholder="نام ایستگاه را جستجو کنید ..."
+				/>
+			</div>
+		</div>
+
+		<div id="nodePropertiesDialog" class="dialog fixed bottom-5 right-5 w-64 bg-white/10 border border-black/6 rounded-lg p-3 z-40 backdrop-blur-md shadow-lg">
+			<div class="dialog-header flex items-center justify-between">
+				<span id="dialogTitle" class="font-bold text-sm">اطلاعات ایستگاه</span>
+				<button id="closeDialogBtn" class="text-red-600 hover:bg-black/10 rounded px-2 py-1">X</button>
+			</div>
+			<div class="dialog-body mt-2 text-sm">
+				<p class="mb-1"><strong>نام:</strong> <span id="nodeName" class="mr-2"></span></p>
+				<p class="mb-1"><strong>خط:</strong> <span id="nodeLines" class="mr-2"></span></p>
+				<p class="mb-1">
+					<strong>آدرس:</strong>
+					<span id="nodeAddress" class="no-select mr-2"></span>
+				</p>
+				<p id="nodeEmojis" class="mt-1"></p>
+			</div>
+		</div>
+
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/vivagraphjs/0.12.0/vivagraph.min.js"
+			integrity="sha512-gkKEgYqs7I24YHETln6iLyd9Oy10s2Cyaev28dxbCQa3mV22SbdDsWrprpRL/DSAJERZiFiQcN+wnsxPKR6Trw=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		></script>
+		<script src="script.js"></script>
+	</body>
+</html>

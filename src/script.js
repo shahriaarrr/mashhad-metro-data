@@ -2,13 +2,52 @@ const graph = Viva.Graph.graph();
 const graphics = Viva.Graph.View.svgGraphics();
 const nodeSize = 24;
 
+
+function initDarkMode() {
+	const darkModeToggle = document.getElementById('darkModeToggle');
+	const body = document.body;
+	
+	
+	const savedTheme = localStorage.getItem('theme');
+	if (savedTheme === 'dark') {
+		body.classList.add('dark-mode');
+	}
+	
+	
+	darkModeToggle.addEventListener('click', () => {
+		body.classList.toggle('dark-mode');
+		
+		
+		if (body.classList.contains('dark-mode')) {
+			localStorage.setItem('theme', 'dark');
+		} else {
+			localStorage.setItem('theme', 'light');
+		}
+		
+		
+		updateSVGTextColors();
+	});
+}
+
+
+function updateSVGTextColors() {
+	const isDarkMode = document.body.classList.contains('dark-mode');
+	const textColor = isDarkMode ? '#ffffff' : '#000000';
+	
+	
+	const svgTexts = document.querySelectorAll('svg text');
+	svgTexts.forEach(text => {
+		text.setAttribute('fill', textColor);
+	});
+}
+
 const init = async () => {
 	const response = await fetch("../data/stations.json");
 	const stations = await response.json();
 
 	const searchDropdown = document.getElementById("searchDropdown");
 
-	// add nodes and relationships based on the graph data
+	
 	for (let station in stations) {
 		graph.addNode(station, stations[station]);
 
@@ -26,7 +65,7 @@ const init = async () => {
 		}
 	}
 
-	// Graphic as svg
+	
 	graphics.node((node) => {
 		console.log(node.data);
 		const ui = Viva.Graph.svg("g");
@@ -34,9 +73,13 @@ const init = async () => {
 			RenderNodeProperties(node);
 		});
 		ui.on("touchstart", function (e) {
-			e.preventDefault(); // Prevent default touch behavior
+			e.preventDefault(); 
 			RenderNodeProperties(node);
 		});
+		
+		
+		const isDarkMode = document.body.classList.contains('dark-mode');
+		const textColor = isDarkMode ? '#ffffff' : '#000000';
 		
 		const svgText = Viva.Graph.svg("text")
 			.attr("x", "15px")
@@ -44,7 +87,7 @@ const init = async () => {
 			.attr("font-size", "11px")
 			.attr("font-weight", "bold")
 			.attr("font-family", "Vazirmatn, sans-serif")
-			.attr("fill", "#000")
+			.attr("fill", textColor)
 			.attr("text-anchor", "start")
 			.text(node.data?.translations.fa || "");
 			
@@ -54,7 +97,7 @@ const init = async () => {
 			.attr("font-size", "10px")
 			.attr("font-weight", "bold")
 			.attr("font-family", "Vazirmatn, sans-serif")
-			.attr("fill", "#000")
+			.attr("fill", textColor)
 			.attr("text-anchor", "start")
 			.text(node.data?.name || "");
 
@@ -116,6 +159,12 @@ const init = async () => {
 		container: document.getElementById("graph"),
 	});
 	renderer.run();
+	
+	
+	initDarkMode();
+	
+	
+	setTimeout(updateSVGTextColors, 100);
 };
 
 function closeSearch() {

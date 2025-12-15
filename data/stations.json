@@ -1215,6 +1215,6 @@
         "petsAllowed": false,
         "freeWifi": false,
         "prayerRoom": true,
-        "relations": ["Shohada"]
+        "relations": []
     }
 }

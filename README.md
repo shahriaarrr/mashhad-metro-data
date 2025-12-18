@@ -331,9 +331,9 @@ For complete license terms and legal details, please see the [LICENSE](LICENSE) 
 
 **Love this project? Give it a ⭐️!**
 
-[![GitHub stars](https://img.shields.io/github/stars/yourusername/mashhad-metro-graph?style=social)](../../stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/yourusername/mashhad-metro-graph?style=social)](../../network/members)
-[![GitHub watchers](https://img.shields.io/github/watchers/yourusername/mashhad-metro-graph?style=social)](../../watchers)
+[![GitHub stars](https://img.shields.io/github/stars/shahriaarrr/mashhad-metro-data?style=social)](../../stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/shahriaarrr/mashhad-metro-data?style=social)](../../network/members)
+[![GitHub watchers](https://img.shields.io/github/watchers/shahriaarrr/mashhad-metro-data?style=social)](../../watchers)
 
 [🐛 Issues](../../issues) • [💡 Discussions](../../discussions) • [📧 Contact](shahriaarrr@gmail.com)
 

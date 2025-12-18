@@ -42,7 +42,7 @@ function updateSVGTextColors() {
 }
 
 const init = async () => {
-	const response = await fetch("./data/stations.json");
+	const response = await fetch("../data/stations.json");
 	const stations = await response.json();
 
 	const searchDropdown = document.getElementById("searchDropdown");

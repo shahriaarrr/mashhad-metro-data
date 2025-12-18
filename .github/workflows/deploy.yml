@@ -29,6 +29,13 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
+      # 👇 کپی پوشه‌های خارج از src فقط برای Pages
+      - name: Prepare pages files
+        run: |
+          mkdir -p src/data src/font
+          cp -r data/* src/data/
+          cp -r font/* src/font/
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

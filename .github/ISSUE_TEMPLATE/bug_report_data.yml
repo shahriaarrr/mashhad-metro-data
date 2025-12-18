@@ -1,0 +1,139 @@
+name: 🚇 Bug Report - Metro Data
+description: Report incorrect or missing information in the metro station data
+title: "Data :: Bug Title Here"
+labels: ["bug", "data", "metro-info"]
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping us improve the metro data! Please provide as much detail as possible.
+
+  - type: input
+    id: station-name
+    attributes:
+      label: Station Name
+      description: Which station has incorrect data?
+      placeholder: e.g., ایستگاه شهید کاوه
+    validations:
+      required: true
+
+  - type: dropdown
+    id: issue-type
+    attributes:
+      label: Issue Type
+      description: What type of data issue is this?
+      options:
+        - Incorrect station name
+        - Wrong address
+        - Missing station
+        - Incorrect line information
+        - Wrong station connections
+        - Incorrect amenities (WC, ATM, etc.)
+        - Wrong colors
+        - Station should be marked as disabled
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: current-data
+    attributes:
+      label: Current (Incorrect) Data
+      description: What is the current incorrect information?
+      placeholder: Describe what data is currently shown...
+    validations:
+      required: true
+
+  - type: textarea
+    id: correct-data
+    attributes:
+      label: Correct Data
+      description: What should the correct information be?
+      placeholder: Provide the correct information...
+    validations:
+      required: true
+
+  - type: dropdown
+    id: metro-line
+    attributes:
+      label: Metro Line
+      description: Which metro line is this station on?
+      multiple: true
+      options:
+        - Line 1
+        - Line 2
+        - Line 3
+        - Line 4
+        - Not sure
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: amenities
+    attributes:
+      label: Station Amenities (if applicable)
+      description: Select the amenities available at this station
+      options:
+        - label: 🚾 Public Restroom (WC)
+        - label: 🏧 ATM
+        - label: 🍔 Fast Food
+        - label: 🛒 Grocery Store
+        - label: ☕ Coffee Shop
+        - label: 🕌 Near Holy Shrine
+        - label: 🦯 Blind Path
+        - label: 🚲 Bicycle Parking
+        - label: 🍽️ Clean Food
+
+  - type: textarea
+    id: source
+    attributes:
+      label: Source of Information
+      description: How do you know this information is correct?
+      placeholder: |
+        e.g., I visit this station daily
+        e.g., Official metro website
+        e.g., Verified with metro staff
+    validations:
+      required: false
+
+  - type: textarea
+    id: photos
+    attributes:
+      label: Photos or Evidence
+      description: If possible, attach photos or other evidence supporting your claim
+      placeholder: Drag and drop images here or paste URLs
+    validations:
+      required: false
+
+  - type: input
+    id: date-verified
+    attributes:
+      label: When was this verified?
+      description: When did you last verify this information?
+      placeholder: e.g., December 2024
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional-notes
+    attributes:
+      label: Additional Notes
+      description: Any other relevant information
+      placeholder: Add any additional context...
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Confirmation
+      description: Please confirm the following
+      options:
+        - label: I have verified this information is accurate
+          required: true
+        - label: I have checked that this issue hasn't been reported already
+          required: true
+        - label: I understand this data is used by many people and accuracy is important
+          required: true

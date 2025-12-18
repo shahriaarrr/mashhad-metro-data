@@ -42,7 +42,7 @@ function updateSVGTextColors() {
 }
 
 const init = async () => {
-	const response = await fetch("../data/stations.json");
+	const response = await fetch("/data/stations.json");
 	const stations = await response.json();
 
 	const searchDropdown = document.getElementById("searchDropdown");
@@ -57,6 +57,8 @@ const init = async () => {
 		span.innerHTML = stations[station].translations.fa;
 		span.addEventListener("mousedown", function (e) {
 			RenderNodeProperties({ data: stations[station] });
+			const searchInput = document.getElementById("serach-input");
+			searchInput.value = "";
 		});
 		searchDropdown.appendChild(span);
 
@@ -99,6 +101,7 @@ const init = async () => {
 			.attr("font-family", "Vazirmatn, sans-serif")
 			.attr("fill", textColor)
 			.attr("text-anchor", "start")
+			.attr("data-name", node.data?.name || "")
 			.text(node.data?.name || "");
 
 		const svgRect = Viva.Graph.svg("rect")

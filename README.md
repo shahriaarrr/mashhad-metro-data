@@ -280,7 +280,7 @@ We love seeing what the community builds with this data! Here are some awesome p
 
 | Project | Description | Repository | Author |
 |---------|-------------|------------|--------|
-| *Mashhad Metro mobile app* | *Complete guide for Mashhad Metro navigation* | [Link](https://github.com/shahriaarrr/mashhad_metro) | [@shahriaarrr](https://github.com/shahriaarrr) |
+| *Mashhad Metro mobile app* | *Complete guide for Mashhad Metro navigation* | [Link](https://github.com/shahriaarrr/mashhad-metro) | [@shahriaarrr](https://github.com/shahriaarrr) |
 
 > **📣 Used this dataset in your project?** 
 > 

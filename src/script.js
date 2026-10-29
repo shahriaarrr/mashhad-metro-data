@@ -42,7 +42,7 @@ function updateSVGTextColors() {
 }
 
 const init = async () => {
-	const response = await fetch("../data/stations.json");
+	const response = await fetch("https://raw.githubusercontent.com/shahriaarrr/mashhad-metro-data/refs/heads/main/data/stations.json");
 	const stations = await response.json();
 
 	const searchDropdown = document.getElementById("searchDropdown");
@@ -180,17 +180,13 @@ function closeSearch() {
 function searchStation() {
 	closeDialog();
 	const serachInput = document.getElementById("serach-input");
+	const filter = serachInput.value.toUpperCase();
 	const items = document.querySelectorAll(".search-item");
 
-	if (!serachInput) {
-		return;
-	}
-
-	const filter = serachInput.value.trim().toUpperCase();
 
 	for (let i = 0; i < items.length; i++) {
-		const txtValue = items[i].textContent || "";
-		if (filter === "") {
+		txtValue = items[i].textContent || a[i].innerText;
+		if (filter == "") {
 			items[i].style.display = "none";
 		} else if (txtValue.toUpperCase().indexOf(filter) > -1) {
 			items[i].style.display = "block";
@@ -274,11 +270,7 @@ function RenderNodeProperties(node) {
 
 function closeDialog() {
 	const dialog = document.getElementById("nodePropertiesDialog");
-	if (!dialog) {
-		return;
-	}
 	dialog.style.display = "none";
-	dialog.classList.remove("show");
 }
 
 init();
